@@ -1,0 +1,14 @@
+//for some reason level 1 would not let me use imports, so I had to set the path before most operations.
+
+public class Solution {
+        public static int solution(int[] x, int[] y) {
+            java.util.List<Integer> listA = java.util.Arrays.stream(x).boxed().collect(java.util.stream.Collectors.toList());
+            java.util.List<Integer> listB = java.util.Arrays.stream(y).boxed().collect(java.util.stream.Collectors.toList());
+            java.util.Set<Integer> union = new java.util.HashSet<Integer>(listA);
+            union.addAll(listB);
+            java.util.Set<Integer> intersection = new java.util.HashSet<Integer>(listA);
+            intersection.retainAll(listB);
+            union.removeAll(intersection);
+            return union.iterator().next();    
+}
+    }
